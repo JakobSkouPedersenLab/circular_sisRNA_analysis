@@ -1,6 +1,7 @@
 # circular_sisRNA_analysis
-*Overview of R code used for circular sisRNA analysis*
 [![DOI](https://zenodo.org/badge/665570589.svg)](https://zenodo.org/badge/latestdoi/665570589)
+
+*Overview of R code used for circular sisRNA analysis*
 
 The code in this repository represents a subset used to generate and analyse the results presented in: 
 
