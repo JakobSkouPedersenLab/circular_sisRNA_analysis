@@ -1,5 +1,5 @@
 # circular_sisRNA_analysis
-Overview of R code used for circular sisRNA analysis
+*Overview of R code used for circular sisRNA analysis*
 
 The code in this repository represents a subset used to generate and analyse the results presented in: 
 
