@@ -12,6 +12,8 @@ For further requests please contact the corresponding author.
 All analyses are performed using the human hg38 reference genome.
 Note, that most code are implemented in R.
 
-### defining_intron_loci
+### Subfolders
+
+**defining_intron_loci**
 
 Code for extracting and representing intronic loci.
