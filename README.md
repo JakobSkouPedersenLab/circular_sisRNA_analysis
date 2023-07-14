@@ -14,6 +14,6 @@ Note, that most code are implemented in R.
 
 ### Subfolders
 
-**defining_intron_loci**
+**./defining_intron_loci**
 
 Code for extracting and representing intronic loci.
