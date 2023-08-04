@@ -1,0 +1,21 @@
+## Running HTSeq-count ##
+
+# Looping over every sample (bash) and running HTSeq-count
+cd /output/path # also path where BAM files are stored, e.g., /output/path/sample1/sample1.bam
+while read sample 
+do
+    sbatch /path/HTSeq_gene_count.sh ${sample} 
+done < input.lst
+
+
+# The input.lst contains the sample name.
+# Basic structure of the input.lst:
+sample1  
+sample2 
+sample3
+
+# Process output
+# Use ./defining_intron_loci/create_intron_bed_gtf.Rmd to create GTF file with non-overlapping intron annotations (used in /path/HTSeq_gene_count.sh).
+# Use ./intron_counts_output.R to generate an aggregated expression matrix and annotation tables
+
+

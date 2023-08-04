@@ -1,0 +1,30 @@
+## Obtaining strand-specific read-coverage from BAM files ##
+
+# Note that exon-intron reads are not removed (from pre-mRNA or alternative splicing), which is to match the Htseq approach (for whole-intron expression).
+# This workflow aims to generate an overview of the total, cross-sample, normalized read-coverage.
+
+# Steps:
+
+# 1) Create list of sample names, here named ./sampleIDs.txt. Format:
+sample1
+sample2
+sample3
+# Some of the annotation files used (e.g., containing intron coordinates) can be generated using ./defining_intronloci/create_intron_bed_gtf.Rmd.
+
+# 2) Filter reads not mapping to intronic loci and remove linear splice-reads (mapping across introns) using samtools view and BEDtools intersect. Then generate bigWig file using bamCoverage. This is done for each sample running the following bash code in the terminal:
+cd /path/to/folder/containing/BAM/files
+while read sample
+do
+    sbatch /path/coverage_intron_stranded.sh ${sample}
+done < /path/sampleIDs.txt
+
+# 3) Merge bigWig (bw) files from all samples using wiggletools and bedGraphToBigWig, by running the ./coverage_bw_merge.sh script.
+sbatch /path/coverage_bw_merge.sh
+
+# 4) Use bwtools to extract read-coverage for each intron (this step can also be used for downloaded conservation/phyloP-score tracks).
+sbatch /path/coverage_intron_extract.sh
+
+# 5) Normalize .bw and .bedGraph files as counts per million (CPM; I used the total reads across all samples for normalization) and per sample (divide by total number of samples). Then extract per base read-depth/conservation scores of specific regions of interest (e.g., 5' splice site, branch point, 3' splice site). This helps reduce the final file size.
+Rscript /path/perBase_phyloP100way_coverage_file_updating.R
+
+
