@@ -1,0 +1,23 @@
+## Running CIRCexplorer2 ##
+
+# Looping over every sample (bash) and running CIRCexplorer2
+while read sample r1 r2
+do
+    sbatch /path/circexplorer2.sh ${sample} ${r1} ${r2}
+    echo "${sample} done"
+done < /path/input.lst
+
+
+# The input.lst contains the sample name, the path to the R1 and R2 fastq files.
+# Basic structure of the input.lst:
+sample1 /path/to/sample1_R1_1.fastq.gz,/path/to/sample1_R1_2.fastq.gz /path/to/sample1_R2_1.fastq.gz,/path/to/sample1_R2_2.fastq.gz 
+sample2 /path/to/sample2_R1.fastq.gz /path/to/sample2_R2.fastq.gz
+
+
+# Process output
+# Use ./CIRCexplorer2_output.R to generate an aggregated expression matrix and annotation tables
+# Use ./setting_up_intron_anno.R to assign intron annotations (./defining_intron_loci/get_intron_pos_anno.R is used to extract intron positions)
+# Use ./matching_non_overlap_intron_with_ciRNA_intron.R to assign non-exon & non-intron overlapping intron annotations to the circular sisRNAs. These are assigned based on matches to the intron expression matrix, which uses these annotations and HTseq-count to count intron reads (see ./position_wise_cov_cons/intron_expression/X).
+# Use ./update_sisRNA_anno.R to collapse circular sisRNAs sharing their 5' end and host intron.
+
+

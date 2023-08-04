@@ -1,0 +1,15 @@
+name: hg38
+tools:
+  bwa: /path/miniconda3/envs/CIRIquant_env/bin/bwa
+  hisat2: /path/miniconda3/envs/CIRIquant_env/bin/hisat2
+  stringtie: /path/miniconda3/envs/CIRIquant_env/bin/stringtie
+  samtools: /path/miniconda3/envs/CIRIquant_env/bin/samtools
+  star: /path/miniconda3/envs/circexplorer2_2/bin/STAR
+  CIRCexplorer2: /path/miniconda3/envs/circexplorer2_2/bin/CIRCexplorer2
+
+reference:
+  fasta: /path/iRNA2020/revisions/circ_detection/circexplorer2_CIRIquant/hg38_bwa_indexes/hg38_bwa_indexes.fa
+  gtf: /path/iRNA2020/revisions/circ_detection/circexplorer2_CIRIquant/hg38_bwa_indexes/hg38_bwa_indexes.gtf
+  bwa_index: /path/iRNA2020/revisions/circ_detection/circexplorer2_CIRIquant/hg38_bwa_indexes/hg38_bwa_indexes
+  hisat_index: /path/iRNA2020/revisions/circ_detection/circexplorer2_CIRIquant/hg38_bwa_indexes/hg38_bwa_indexes.fa
+  star_index: /path/hg38/software_indexes/star_fusion/GRCh38_gencode_v33_CTAT_lib_Apr062020.plug-n-play/ctat_genome_lib_build_dir/ref_genome.fa.star.idx

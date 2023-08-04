@@ -1,0 +1,20 @@
+## Running circRNA_Finder ##
+
+# for info: https://github.com/orzechoj/circRNA_finder
+
+# Looping over every sample (bash) and running circRNA_finder
+while read sample r1 r2
+do
+    sbatch /path/run_circrna_finder.sh ${sample} ${r1} ${r2}
+    echo "${sample} done"
+done < /path/input.lst
+
+# The input.lst contains the sample name, the path to the R1 and R2 fastq files.
+# Basic structure of the input.lst:
+sample1 /path/to/sample1_R1_1.fastq.gz,/path/to/sample1_R1_2.fastq.gz /path/to/sample1_R2_1.fastq.gz,/path/to/sample1_R2_2.fastq.gz 
+sample2 /path/to/sample2_R1.fastq.gz /path/to/sample2_R2.fastq.gz
+
+
+# Process output
+# Use ./generate_exp_matrices.R & ./generate_exp_matrices.sh to generate an aggregated expression matrix
+# Use ./intron_assignment.R to assign intron annotations and identify circular sisRNAs

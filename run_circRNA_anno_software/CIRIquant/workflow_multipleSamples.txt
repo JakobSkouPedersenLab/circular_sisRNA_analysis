@@ -1,0 +1,17 @@
+## Preparing for and running CIRIquant ##
+
+# Looping over every sample and running CIRIquant
+while read sample r1 r2 id
+do
+    sbatch /path/run_ciriquant.sh ${sample} ${r1} ${r2} ${id}
+    echo "${sample} started"
+done < /path/input.lst
+
+# The input.lst contains the sample name, the path to the R1 and R2 fastq files and the sample ID.
+# Basic structure of the input.lst:
+sample1 /path/to/sample1_R1_1.fastq.gz /path/to/sample1_R2_1.fastq.gz 1
+sample1 /path/to/sample1_R1_2.fastq.gz /path/to/sample1_R2_2.fastq.gz 2
+sample2 /path/to/sample2_R1.fastq.gz /path/to/sample2_R2.fastq.gz 3
+
+# Use ./generate_exp_matrices.R to process the output. 
+# Use ./intron_assignment.R to assign intron annotation and identify circular sisRNAs.
