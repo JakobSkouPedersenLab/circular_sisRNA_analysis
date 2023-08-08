@@ -5,7 +5,7 @@
 
 The code in this repository represents a subset used to generate and analyse the results presented in: 
 
-Asta M. Rasmussen†, Trine Line H. Okholm†, Michael Knudsen, Søren Vang, Lars Dyrskjøt, Thomas B. Hansen, and Jakob S. Pedersen. Circular Stable Intronic RNAs possess distinct biological features and are deregulated in bladder cancer. NAR Cancer (2023). 
+Asta M. Rasmussen†, Trine Line H. Okholm†, Michael Knudsen, Søren Vang, Lars Dyrskjøt, Thomas B. Hansen, and Jakob S. Pedersen. Circular Stable Intronic RNAs possess distinct biological features and are deregulated in bladder cancer. NAR Cancer (2023). https://doi.org/10.1093/narcan/zcad041.
 
 For further requests please contact the corresponding author.
 
